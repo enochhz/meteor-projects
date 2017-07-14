@@ -1,1 +1,0 @@
-this is a FUll-Stack projects using meteor framework
