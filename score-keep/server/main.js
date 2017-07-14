@@ -1,3 +1,3 @@
-import {add} from './../imports/math';
+import add from './../imports/math';
 
-console.log(add(5, 9));
+console.log(add(5, 2));
