@@ -1,3 +1,7 @@
-import add from './../imports/math';
+import {Meteor} from 'meteor/meteor';
+import {Players} from './../imports/api/Players';
 
-console.log(add(5, 2));
+Meteor.startup(function() {
+
+});
+
