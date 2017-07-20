@@ -4,41 +4,25 @@ import {Meteor} from 'meteor/meteor';
 import {Players} from './../imports/api/players';
 import {Tracker} from 'meteor/tracker';
 
-const renderPlayers = function(playersList) {
-    return playersList.map(function(player) {
-       return <p key={player._id}>{player.name} has {player.score} point(s).</p>;
+import TitleBar from './../imports/ui/TitleBar';
+import AddPlayer from './../imports/ui/AddPlayer';
+import Player from './../imports/ui/Player';
+
+const renderPlayers = (playersList) => {
+    return playersList.map((player) => {
+        return <Player player={player} key={player._id}/>;
     });
 };
 
-const handleSubmit = function(e) {
-    let playerName = e.target.playerName.value;
-    e.preventDefault();
-    if (playerName) {
-        e.target.playerName.value = "";
-        // players insert
-        Players.insert( {
-            name: playersName,
-            score: 0
-        });
-    }
-};
-
-Meteor.startup(function(){
-    Tracker.autorun(function() {
+Meteor.startup(() => {
+    Tracker.autorun(() => {
         let players = Players.find().fetch();
-        let name = 'Walker';
-        // title -> Account Settings
-        let title = 'Socre Keep';
+        let title = 'Score Keeper', subTitle = 'Created by Hao Zheng';
         let jsx = (
             <div>
-                <h1>{title}</h1>
-                <p>Hello {name}</p>
-                <p>Second p.</p>
+                <TitleBar title={title} subTitle={subTitle}/>
                 {renderPlayers(players)}
-                <form onSubmit={handleSubmit}>
-                    <input type="text" name="playerName" placeholder="Player name"/>
-                    <button>Add Player</button>
-                </form>
+                <AddPlayer score={0}/>
             </div>
         );
         ReactDom.render(jsx, document.getElementById('app'));
