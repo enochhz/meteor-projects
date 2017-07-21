@@ -12,7 +12,7 @@ export default class AddPlayer extends React.Component {
                 score: this.props.score
             });
         } else {
-            alert('You must fill in name field');
+            alert('You must enter your name');
         }
     }
 
