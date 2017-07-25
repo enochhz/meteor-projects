@@ -2,17 +2,22 @@
 // Elements: name, stats, actions
 
 .player {
-
+  align-item: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .player_name {
-
+  font-weight: 300;
+  font-size: 1.8rem;
 }
 
 .player_stats {
-
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight:300;
 }
 
 .player_actions {
-
+  flex-shrink: 0;
 }
