@@ -7,6 +7,7 @@ export default class AddPlayer extends React.Component {
 
         event.preventDefault();
 
+        debugger;
         if (playerName) {
             event.target.playerName.value = "";
             Players.insert({

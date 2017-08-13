@@ -1,7 +1,6 @@
 import React from 'react';
 import {Players} from './../api/players';
 import PropTypes from 'prop-types';
-import FlipMove from 'react-flip-move';
 
 export default class Player extends React.Component {
     render() {
