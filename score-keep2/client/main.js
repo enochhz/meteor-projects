@@ -5,38 +5,33 @@ import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/player';
 
-Tracker.autorun(function() {
-  console.log('Players list', Players.find().fetch());
-});
-
-const players = [{
-    _id: '1',
-    name: 'walker',
-    score: 35
-}, {
-    _id: '2',
-    name: 'fandy',
-    score: 3
-}];
-
 const renderPlayers = function(playerList) {
     return playerList.map(function(player){
         return <p key={player.key}>{player.name} has {player.score} point(s).</p>;
     })
 };
 
-
 Meteor.startup(function() {
-    let name = 'Andrew';
-    let title = 'This is a Title';
-    let jsx = (
-    <div>
-        {/* Render h1 tag */}
-        <h1>{title}</h1>
-        <p>This is from {name}</p>
-        <p>This is the second</p>
-    {renderPlayers(players)}
-    </div>
-    );
-    ReactDOM.render(jsx, document.getElementById('app'));
+    // Call tracker.autorun
+    // create variable called players -> set equal to fetch
+    // Render players to the screen
+    Tracker.autorun(function() {
+        let players = Players.find().fetch();
+        let name = 'Andrew';
+        let title = 'This is a Title';
+        let jsx = (
+            <div>
+                {/* Render h1 tag */}
+                <h1>{title}</h1>
+                <p>This is from {name}</p>
+                <p>This is the second</p>
+                {renderPlayers(players)}
+            </div>
+        );
+        ReactDOM.render(jsx, document.getElementById('app'));
+    });
+    Players.insert({
+        name: 'cool',
+        score: 332
+    });
 });
