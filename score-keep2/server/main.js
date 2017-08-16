@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import {Players} from './../imports/api/player';
 
-Meteor.startup(function(){
+Meteor.startup(() => {
     // Players.insert({
     //     name: 'walker',
     //     score: 45
@@ -23,7 +23,7 @@ Meteor.startup(function(){
     //     }
     // };
     // user.sayHi(1, 2);
-    let numbers = [9, 99, 4, 56];
-    let newNumbers = numbers.map((number)=> number + 1);
-    console.log(newNumbers);
+    // let numbers = [9, 99, 4, 56];
+    // let newNumbers = numbers.map((number)=> number + 1);
+    // console.log(newNumbers);
 });
