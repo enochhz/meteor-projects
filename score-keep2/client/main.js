@@ -39,11 +39,11 @@ Meteor.startup(() => {
     // Render players to the screen
     Tracker.autorun(() => {
         let players = Players.find().fetch();
-        let name = 'Andrew';
+        let title = 'Score Keeper';
+        let subtitle = 'Created by Hao Zheng';
         let jsx = (
             <div>
-                <TitleBar/>
-                <p>This is from {name}</p>
+                <TitleBar title={title} subtitle={subtitle}/>
                 {renderPlayers(players)}
                 <div/>
                 <form onSubmit={handleSubmit}>
