@@ -4,25 +4,16 @@ import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/player';
-import TitleBar from './../imports/ui/TitleBar';
-import AddPlayer from './../imports/ui/AddPlayer';
-import PlayerList from './../imports/ui/PlayerList';
+import App from './../imports/ui/App';
 
 Meteor.startup(() => {
     // Call tracker.autorun
     // create variable called players -> set equal to fetch
     // Render players to the screen
     Tracker.autorun(() => {
-        let players = Players.find().fetch();
+        let players = Players.find({}, {sort: {score: -1}}).fetch();
         let title = 'Score Keeper';
         let subtitle = 'Created by Hao Zheng';
-        let jsx = (
-            <div>
-                <TitleBar title={title} subtitle={subtitle}/>
-                <PlayerList players={players}/>
-                <AddPlayer score={10}/>
-            </div>
-        );
-        ReactDOM.render(jsx, document.getElementById('app'));
+        ReactDOM.render(<App title={title} subtitle={subtitle} players={players}/>, document.getElementById('app'));
     });
 });
