@@ -4,7 +4,7 @@ import {Tracker} from 'meteor/tracker';
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import {Patients} from "../imports/api/patients";
+import {Patients} from '../imports/api/patients';
 import App from './../imports/ui/App';
 
 Meteor.startup(function() {

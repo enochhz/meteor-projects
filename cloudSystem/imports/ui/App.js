@@ -10,7 +10,7 @@ export default class App extends React.Component {
            <div>
                <TitleBar title={this.props.title}/>
                <PatientList patients={this.props.patients}/>
-               <AddPatient times='0'/>
+               <AddPatient times={0}/>
            </div>
        );
     }
