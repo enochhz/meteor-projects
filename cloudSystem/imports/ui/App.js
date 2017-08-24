@@ -9,8 +9,10 @@ export default class App extends React.Component {
        return (
            <div>
                <TitleBar title={this.props.title}/>
-               <PatientList patients={this.props.patients}/>
-               <AddPatient times={0}/>
+               <div className="wrapper">
+                   <PatientList patients={this.props.patients}/>
+                   <AddPatient times={0}/>
+               </div>
            </div>
        );
     }

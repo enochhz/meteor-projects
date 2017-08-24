@@ -20,11 +20,13 @@ export default class AddPatient extends React.Component {
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
-                <input type="text" name="patientName" placeholder="Patient name"/>
-                <input type="text" name="patientAge" placeholder="Patient age"/>
-                <button>Add Patient</button>
-            </form>
+            <div className="item">
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                    <input type="text" name="patientName" placeholder="Patient name"/>
+                    <input type="text" name="patientAge" placeholder="Patient age"/>
+                    <button className="button">Add Patient</button>
+                </form>
+            </div>
         );
     }
 }

@@ -10,24 +10,30 @@ export default class PatientList extends React.Component {
     };
     render() {
         if (this.props.patients.length == 0) {
-            return <h1>Add Your First Patients Here</h1>
+            return (
+                <div className="item">
+                    <p className="item__message">Add Your First Patient Here</p>
+                </div>
+            );
         } else {
             return (
+                <div className="item">
                 <table>
                     <thead>
-                    <tr>
-                        <th>Patient Name</th>
-                        <th>Age</th>
-                        <th>Visit Times</th>
-                        <th>Add One</th>
-                        <th>Minus One</th>
-                        <th>Delete</th>
-                    </tr>
+                        <tr>
+                            <th className="item">Name</th>
+                            <th className="item">Age</th>
+                            <th className="item">Visite Time</th>
+                            <th className="item">Add</th>
+                            <th className="item">Minus</th>
+                            <th className="item">Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
                     {this.renderPatients(this.props.patients)}
                     </tbody>
                 </table>
+                </div>
             );
         }
     }

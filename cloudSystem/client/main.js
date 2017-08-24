@@ -10,7 +10,7 @@ import App from './../imports/ui/App';
 Meteor.startup(function() {
     Tracker.autorun (function() {
         let title = 'Cloud System';
-        let patients = Patients.find().fetch();
+        let patients = Patients.find({}, {sort: {visitTimes: -1}}).fetch();
         ReactDom.render(<App title={title} patients={patients}/>, document.getElementById('app'));
     });
 });
