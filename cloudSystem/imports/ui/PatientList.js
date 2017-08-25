@@ -1,6 +1,7 @@
 import React from 'react';
 import Patient from './Patient';
 import PropTypes from 'prop-types';
+import FlipMove from 'react-flip-move';
 
 export default class PatientList extends React.Component {
     renderPatients(patientList) {
@@ -19,19 +20,17 @@ export default class PatientList extends React.Component {
             return (
                 <div className="item">
                 <table>
-                    <thead>
+                    <FlipMove maintainContainerHeight={true}>
                         <tr>
-                            <th className="item">Name</th>
-                            <th className="item">Age</th>
-                            <th className="item">Visite Time</th>
-                            <th className="item">Add</th>
-                            <th className="item">Minus</th>
-                            <th className="item">Delete</th>
+                            <td className="item item__head">Name</td>
+                            <td className="item item__head">Age</td>
+                            <td className="item item__head">Visite Time</td>
+                            <td className="item item__head">Add</td>
+                            <td className="item item__head">Minus</td>
+                            <td className="item item__head">Delete</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                    {this.renderPatients(this.props.patients)}
-                    </tbody>
+                        {this.renderPatients(this.props.patients)}
+                    </FlipMove>
                 </table>
                 </div>
             );
