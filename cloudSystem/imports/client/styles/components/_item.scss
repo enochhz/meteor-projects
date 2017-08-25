@@ -14,5 +14,26 @@
 }
 
 .item__head {
-  font-weight: bold;
+  font-weight: normal;
+  color: white;
+  background: $titleBlue;
+  border-color: $titleBlue-alt;
+}
+
+.item--position-2 {
+  color: white;
+  background: $red;
+  border-color: $red-alt;
+}
+
+.item--position-0 {
+  color: white;
+  background: $green;
+  border-color: $green-alt;
+}
+
+.item--position-1 {
+  color: white;
+  background: $blue;
+  border-color: $blue-alt;
 }
