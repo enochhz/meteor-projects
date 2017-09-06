@@ -24,7 +24,7 @@ export default class Signup extends React.Component {
     render() {
        return (
            <div>
-              <h1>Join Us</h1>
+              <h1>Sign Up New Account</h1>
                {this.state.error ? <p>{this.state.error}</p> : undefined}
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <input type="email" ref="email" name="email" placeholder="Email"/>
