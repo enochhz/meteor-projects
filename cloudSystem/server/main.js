@@ -1,11 +1,8 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor }   from 'meteor/meteor';
+import SimpleSchema from 'simpl-schema';
+import {Accounts}   from 'meteor/accounts-base';
 import {Patients} from './../imports/api/patients';
+import '../imports/api/patients';
 
 Meteor.startup(() => {
-   // Patients.insert({
-   //     name: 'Walker',
-   //     age: 15,
-   //      visitTimes: 0
-   // });
-   // console.log(Patients.find().fetch());
 });
