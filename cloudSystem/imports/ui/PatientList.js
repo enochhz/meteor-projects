@@ -6,6 +6,7 @@ import FlipMove from 'react-flip-move';
 export default class PatientList extends React.Component {
     renderPatients(patientList) {
         return patientList.map(function (patient) {
+            console.log(patient);
             return <Patient key={patient._id} patient={patient}/>;
         });
     };

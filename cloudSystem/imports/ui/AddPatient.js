@@ -1,5 +1,5 @@
 import React from 'react';
-import {Patients} from './../api/patients';
+import {Patients} from '../api/patients';
 
 export default class AddPatient extends React.Component {
     handleSubmit(event) {
