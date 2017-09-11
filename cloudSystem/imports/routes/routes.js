@@ -1,11 +1,9 @@
 import {Meteor} from 'meteor/meteor';
-import {Tracker}from 'meteor/tracker';
 import {Router, Route, Switch} from 'react-router';
 
 import React    from 'react';
-import ReactDom from 'react-dom';
 
-import {Patients, calculatePaitentPositions} from '../api/patients';
+import {Patients, calculatePaitentPositions} from './../api/patients';
 import Login    from './../ui/Login';
 import Signup   from './../ui/Signup';
 import App      from './../ui/App';
@@ -28,31 +26,17 @@ const onEnterPrivatePage = () => {
     }
 };
 
-let title = 'Cloud System';
-let patients = Patients.find({}, {sort: {visitTimes: -1}}).fetch();
-let positionedPatients = calculatePaitentPositions(patients);
-
-class App1 extends React.Component{
-    render() {
-        return (
-            <div>
-
-                <App title={title} patients={positionedPatients}/>
-            </div>
-        );
-    }
-}
-
 export const routes = (
     <Router history={browserHistory}>
         <Switch>
-            <Route exact path="/"  component={Login}    onEnter={onEnterPublicPage}/>
-            <Route path="/signup"  component={Signup}   onEnter={onEnterPublicPage}/>
-            <Route path="/app"     component={App1}     onEnter={onEnterPrivatePage}/>
-            <Route path="*"        component={NotFound}/>
+            <Route exact path="/"   component={Login}   onEnter={onEnterPublicPage}/>
+            <Route path="/signup"   component={Signup}  onEnter={onEnterPublicPage}/>
+            <Route path="/app"      component={App}    onEnter={onEnterPrivatePage}/>
+            <Route path="*"         component={NotFound}/>
         </Switch>
     </Router>
 );
+
 
 export const onAuthChange = (isAuthenticated) => {
     const pathname = browserHistory.location.pathname;
@@ -65,13 +49,3 @@ export const onAuthChange = (isAuthenticated) => {
     }
     console.log('isAuthenticated ', isAuthenticated);
 };
-
-// Meteor.startup(function() {
-//     Tracker.autorun (function() {
-//         let title = 'Cloud System';
-//         let patients = Patients.find({}, {sort: {visitTimes: -1}}).fetch();
-//         let positionedPatients = calculatePaitentPositions(patients);
-//         {/*<App title={title} patients={positionedPatients}/>*/}
-//         ReactDom.render(routes, document.getElementById('app'));
-//     });
-// });

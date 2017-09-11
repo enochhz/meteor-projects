@@ -1,7 +1,9 @@
 .button {
- background: inherit;
- border: 1px solid #555555;
- color: #555555;
+ //background: inherit;
+ border: 0px solid #555555;
+ //color: #555555;
+ background: #3498db;
+ color: white;
  cursor: pointer;
  font-weight: 600;
  margin-left: 1.3rem;
@@ -9,10 +11,13 @@
  padding: 1.3rem;
  transition: background .2s ease, transform .2s ease;
  &:hover, &:focus{
-  background: #ff4040;
+  background: #2874a6;
+   color: white;
+  border: 0px;
  }
  &:active {
-  background: #992626;
+  background: #21618c;
+  color: white;
   transform: scale(1.5);
  }
 }

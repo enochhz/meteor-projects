@@ -1,6 +1,7 @@
 import React    from 'react';
 import {Link}   from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
+import TitleBar from './TitleBar';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -25,14 +26,18 @@ export default class Login extends React.Component {
     render() {
         return (
             <div>
-                <h1>Login Page</h1>
-                {this.state.error ? <p>{this.state.error}</p> : undefined}
-                <form onSubmit={this.onSubmit.bind(this)}>
-                    <input type="email" ref="email" name="email" placeholder="Email"/>
-                    <input type="password" ref="password" name="password" placeholder="Password"/>
-                    <button>Login</button>
-                </form>
+                <TitleBar title="LOGIN PAGE"/>
+                <div className="wrapper">
+                    {this.state.error ? <p className="item__message">{this.state.error}</p> : undefined}
+                    <div className="item">
+                        <form className="form" onSubmit={this.onSubmit.bind(this)}>
+                            <input className="form__input" type="email" ref="email" name="email" placeholder="Email"/>
+                            <input className="form__input" type="password" ref="password" name="password" placeholder="Password"/>
+                            <button className="button">Login</button>
+                        </form>
+                    </div>
                 <Link to={'/signup'}>I want to sign up</Link>
+                </div>
             </div>
         )
     }

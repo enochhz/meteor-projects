@@ -12,18 +12,13 @@ export default class App extends React.Component {
     render() {
        return (
            <div>
-               <TitleBar title={this.props.title}/>
+               <TitleBar title={"Cloud System"}/>
                <div className="wrapper">
-                   <PatientList patients={this.props.patients}/>
+                   <PatientList/>
                    <AddPatient times={0}/>
+                   <button className="button" onClick={this.onLogout.bind(this)}>Logout</button>
                </div>
-               <button onClick={this.onLogout.bind(this)}>Logout</button>
            </div>
        );
     }
 };
-
-App.PropTypes = {
-    title: PropTypes.string.isRequired,
-    patients: PropTypes.array.isRequired
-}
