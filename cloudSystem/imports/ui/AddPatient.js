@@ -10,6 +10,7 @@ export default class AddPatient extends React.Component {
             event.target.patientName.value = "";
             event.target.patientAge.value="",
                 Patients.insert({
+                    userId: Meteor.userId(),
                     name: patientName,
                     age: patientAge,
                     visitTimes: this.props.times
