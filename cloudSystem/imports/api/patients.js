@@ -1,6 +1,13 @@
 import {Mongo}      from 'meteor/mongo';
+import {Meteor}      from 'meteor/meteor';
 
 export const Patients = new Mongo.Collection('patients');
+
+if (Meteor.isServer) {
+    Meteor.publish('patients', () => {
+       return Patients.find();
+    });
+}
 
 export const calculatePaitentPositions = (patients) => {
     let rank = 1;

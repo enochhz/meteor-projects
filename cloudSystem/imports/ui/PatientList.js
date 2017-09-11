@@ -15,6 +15,7 @@ export default class PatientList extends React.Component {
     componentDidMount() {
        console.log('didMount');
        this.patientsTracker = Tracker.autorun(() => {
+           Meteor.subscribe('patients');
            const patients = Patients.find().fetch();
            this.setState({patients});
        });
