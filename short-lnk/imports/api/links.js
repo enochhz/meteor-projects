@@ -10,18 +10,13 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    greetUser: function(name){
-        console.log('greetUser is running');
-        if (!name) {
-            throw new Meteor.Error('name is required', 'invalide - common');
+    'links.insert'(url) {
+        if (!this.userId) {
+            throw new Meteor.Error('not-authorized');
         }
-        return `Hello ${name}!`;
-    },
-    addNumbers: function(num1, num2) {
-        console.log('add number is running');
-        if (!(typeof num1 === 'number' && typeof num2 ===  'number')) {
-            throw new Meteor.Error('invalid arguments', 'expecting two numbers');
-        }
-        return num1 + num2;
+        Links.insert({
+          url,
+          userId: this.userId
+        });
     }
 });
