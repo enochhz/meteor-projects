@@ -2,7 +2,6 @@ import { Meteor }   from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 import '../imports/api/validate';
 import './../imports/startup/simple-schema-configuration';
-// import '../imports/api/patients';
 
 export const Patients = new Mongo.Collection('patients');
 

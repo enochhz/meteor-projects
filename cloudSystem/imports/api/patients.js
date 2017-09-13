@@ -23,17 +23,3 @@ export const calculatePaitentPositions = (patients) => {
         };
     });
 };
-
-// Meteor.methods({
-//     'patients.insert'(name, age) {
-//         if (!this.userId) {
-//             throw new Meteor.Error('not-authorized');
-//         }
-//         Patients.insert({
-//             name: name,
-//             age: age,
-//             visitTimes: 0,
-//             userId: this.userId
-//         });
-//     }
-// });
