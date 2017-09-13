@@ -1,6 +1,5 @@
 import React        from 'react';
 import {Meteor}     from 'meteor/meteor';
-import {Patients} from '../api/patients';
 
 export default class AddPatient extends React.Component {
     handleSubmit(event) {
@@ -8,12 +7,6 @@ export default class AddPatient extends React.Component {
         let patientAge = event.target.patientAge.value;
         event.preventDefault();
         if (patientName && patientAge) {
-                // Patients.insert({
-                //     userId: Meteor.userId(),
-                //     name: patientName,
-                //     age: patientAge,
-                //     visitTimes: this.props.times
-                // })
             Meteor.call('patients.insert', patientName, patientAge);
             // set both patient and age input fields to empty
             event.target.patientName.value = "";
