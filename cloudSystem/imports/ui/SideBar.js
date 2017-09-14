@@ -9,6 +9,7 @@ export default class SideBar extends React.Component{
                 <a href="">医师</a>
                 <a href="">病人</a>
                 <a href="">库房</a>
+                <a href="">财政</a>
             </div>
         );
     }
